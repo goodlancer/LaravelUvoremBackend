@@ -140,7 +140,7 @@ class ArticleController extends Controller
             // array_push($images, $value->imagePath);
 
         }
-        $articleObject = [
+        $articleObject = (object) [
             'id' => $data[0]->id,
             'userId' => $data[0]->userId,
             'title' => $data[0]->title,
@@ -151,10 +151,9 @@ class ArticleController extends Controller
             'name' => $data[0]->name,
             'email' => $data[0]->email,
             'country' => $data[0]->country,
-            // 'images' => ['image1'=>$data[0]->imagePath, 'image2'=>$data[1]->imagePath, 'image3'=>$data[2]->imagePath],
-            'images' => 'image1'=>$data[0]->imagePath,
-        ];
-        return response()->json(['success' => true, 'data' => [$articleObject,]], 200);
+            'images' => ['image1'=>$data[0]->imagePath, 'image2'=>$data[1]->imagePath, 'image3'=>$data[2]->imagePath],
+       ];
+        return response()->json(['success' => true, 'data' => $articleObject], 200);
     }
     public function getAticleList(Request $request){
         $userId = $request->userId;
