@@ -137,7 +137,8 @@ class ArticleController extends Controller
         $data = DB::select('SELECT article.*, image.imagePath, users.name, users.email, users.country FROM article LEFT JOIN image on image.articleId=article.id LEFT JOIN users on users.id=article.userId WHERE article.id='.$articleId);
         $images = array();
         foreach ($data as $value) {
-            array_push($images, $value->imagePath);
+            // array_push($images, $value->imagePath);
+
         }
         $articleObject = [
             'id' => $data[0]->id,
@@ -150,9 +151,10 @@ class ArticleController extends Controller
             'name' => $data[0]->name,
             'email' => $data[0]->email,
             'country' => $data[0]->country,
-            'images' => $images,
+            // 'images' => ['image1'=>$data[0]->imagePath, 'image2'=>$data[1]->imagePath, 'image3'=>$data[2]->imagePath],
+            'images' => 'image1'=>$data[0]->imagePath,
         ];
-        return response()->json(['success' => true, 'data' => $articleObject], 200);
+        return response()->json(['success' => true, 'data' => [$articleObject,]], 200);
     }
     public function getAticleList(Request $request){
         $userId = $request->userId;
