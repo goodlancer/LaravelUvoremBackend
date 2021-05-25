@@ -38,6 +38,7 @@ class LoginController extends Controller
         if ($this->guard()->validate($this->credentials($request))) {
             $user = $this->guard()->getLastAttempted();
             
+        // dd($user);
             // Make sure the user is active
             if (($user->role==1 || $user->role == 4) && $user->active && $this->attemptLogin($request)) {
                 $request->session()->put('role', $user->role);
