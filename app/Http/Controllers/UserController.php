@@ -120,7 +120,7 @@ class UserController extends Controller
     {
         $id = $user->id;
         $arrArticles = '';
-        if ($type == 3) {
+        if ($type == 4) {
             $arrArticles = Article::where('userId', $id)->orderByDesc('updated_at')->get();
         }
         else {
@@ -225,7 +225,7 @@ class UserController extends Controller
         $id = $request->id;
         $offerType = $request->offerType;
         $arrArticles = Article::where('userId', $id)->where('offerType', $offerType)->orderByDesc('updated_at')->get();
-        if ($offerType == 3) {
+        if ($offerType == 4) {
             $arrArticles = Article::where('userId', $id)->orderByDesc('updated_at')->get();
         }
         $arrImages = [];

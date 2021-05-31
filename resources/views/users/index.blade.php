@@ -47,6 +47,7 @@
                                 <tr>
                                     <th style="width:80px"> {{ __('No ') }} </th>
                                     <th> {{ __('Avatar') }} </th>
+                                    <th> {{ __('Offers') }} </th>
                                     <th> {{ __('User') }} </th>
                                     <th> {{ __('Nick Name') }} </th>
                                     <th> {{ __('Name') }} </th>
@@ -71,7 +72,7 @@
                                         title="{{ $user->nickname }}">
                                         <img src="{{ $user->avatar }}?{{ time() }}"
                                             style="max-width:100px; max-height:100px; border-radius:50%">
-                                        @if ($user->role != 1)
+                                        <!-- @if ($user->role != 1)
                                             <div class="row">
                                                 <div class="col-sm-2"></div>
                                                 <div class="col-sm-3" style="padding:0px; text-align: -webkit-right;">
@@ -86,7 +87,10 @@
                                                         {{ $user->active_count }}</p>
                                                 </div>
                                             </div>
-                                        @endif
+                                        @endif -->
+                                    </td>
+                                    <td rel="tooltop" data-original-title="offer">
+                                        <h4>{{ $user->active_count }}</h4>
                                     </td>
                                     <td>
                                         @if ($user->role == 1)
@@ -121,7 +125,7 @@
                                                 @csrf
                                                 @method('delete')
                                                 <a rel="tooltip" class="btn btn-success btn-link"
-                                                    href="{{ route('user.edit', [$user, 3]) }}" data-original-title="Edit"
+                                                    href="{{ route('user.edit', [$user, 4]) }}" data-original-title="Edit"
                                                     title="Edit">
                                                     <i class="material-icons">edit</i>
                                                     <div class="ripple-container"></div>

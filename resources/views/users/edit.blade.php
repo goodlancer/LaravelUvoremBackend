@@ -157,10 +157,11 @@
                       {{-- $user->id, this.value --}}
                       <?php $url = url('user') ?>
                     <select class="selectpicker" name="offerType" data-style="btn btn-primary" id="selectOffer" value="3" onchange="location.href='{{$url}}/{{$user->id}}/'+this.value">
-                        <option value="3" <?php  echo $type == 3 ? 'selected' : '' ?>>ALL</option>
+                        <option value="4" <?php  echo $type == 4 ? 'selected' : '' ?>>ALL</option>
                         <option value="0" <?php  echo $type == 0 ? 'selected' : '' ?>>DRAWINGS</option>
                         <option value="1" <?php  echo $type == 1 ? 'selected' : '' ?>>PAINTINGS</option>
                         <option value="2" <?php  echo $type == 2 ? 'selected' : '' ?>>ARTISTIC OBJECTS</option>
+                        <option value="3" <?php  echo $type == 3 ? 'selected' : '' ?>>PICTURES</option>
                       </select>
                     </div>
                   </div>

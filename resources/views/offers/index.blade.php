@@ -48,6 +48,8 @@
                   <td> DRAWINGS </td>
                   @elseif($item->offerType == 1)
                   <td> PAINTINGS </td>
+                  @elseif($item->offerType == 2)
+                  <td> PAINTINGS </td>
                   @else
                   <td> ARTISTIC OBJECTS </td>
                   @endif
@@ -131,6 +133,7 @@
                                 <option value="0" <?php  echo $item->offerType == 0 ? 'selected' : '' ?>>DRAWINGS</option>
                                 <option value="1" <?php  echo $item->offerType == 1 ? 'selected' : '' ?>>PAINTINGS</option>
                                 <option value="2" <?php  echo $item->offerType == 2 ? 'selected' : '' ?>>ARTISTIC OBJECTS</option>
+                                <option value="2" <?php  echo $item->offerType == 3 ? 'selected' : '' ?>>PICTURES</option>
                               </select>
                             </div>
                             <div class="form-group">
